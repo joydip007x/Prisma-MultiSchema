@@ -1,0 +1,15 @@
+
+
+type RegisterAddress {
+  addressLine String
+  city        String
+  postCode    String
+  state       String
+}
+
+type RegisterOtp {
+  created_date String
+  otp          Int
+  status       Int
+}
+

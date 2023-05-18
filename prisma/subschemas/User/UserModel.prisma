@@ -1,0 +1,94 @@
+// import {RegisterAddress,RegisterOtp} from "..\Types\Register"
+
+model register {
+  id                       String           @id @default(auto()) @map("_id") @db.ObjectId
+  DOB                      String?
+  v                        Int              @map("__v")
+  account_type             String?
+  activationcode           String?
+  address                  RegisterAddress?
+  allergy                  String?
+  app_config_check         Int
+  approve_by               String?
+  b_contact                String
+  blocklisted_token        Json?
+  bossTerms                Json?
+  checkout_cust_id         String?
+  contact_number           String
+  country_calling_code     String
+  createdAt                DateTime?        @db.Date
+  created_by               String
+  customerRoot             String?
+  date_added               String?
+  dealsAndDiscountsFeed    Boolean?
+  deleted                  Int
+  display_name             String?
+  email                    String
+  employee                 String?
+  employeeUniqueId         String?
+  epos_pin                 String?
+  epos_security_pin        String?
+  existing_user            Int?
+  fname                    String
+  id_verify                Int?
+  identity_no              String?
+  image                    String?
+  invitesCount             Int
+  isEmailVerified          Int
+  /// Multiple data types found: String: 0.2%, Int: 99.8% out of 417 sampled entries
+  isIdentityVerified       Json?
+  isMobileVerified         Int
+  is_mysql_migrate         Boolean?
+  last_booking_id          String?
+  last_onlineTimeStamp     String?
+  last_order_id            String?
+  last_order_rid           String?
+  lname                    String
+  middle_name              String?
+  migrated                 Boolean?
+  modifiedOn               String
+  name                     String
+  oldPassword              String[]
+  oldUser                  Boolean?
+  onlineStatus             Boolean
+  otp                      RegisterOtp
+  /// Could not determine type: the field only had null or empty values in the sample set.
+  passbase_webhook         Json?
+  password                 String
+  passwordResetToken       String?
+  passwordResetTokenExpire String?
+  password_change_status   Int
+  platform_origin          String?
+  promo_code               String?
+  promo_code_token         String?
+  provider                 String?
+  recoverCodeDate          String?
+  recovercode              String?
+  referral                 Boolean?
+  security_pin             String
+  shared_earned_amount     String?
+  status                   String?
+  stripe_cust_id           String?
+  support_pin              String?
+  support_pin_date_time    String?
+  temp_identity_no         String?
+  temp_image               String?
+  terms_agreement          String?
+  tmpKey                   String?
+  token                    String?
+  tokens                   String[]
+  updatedAt                DateTime?        @db.Date
+  updated_by               String?
+  userID                   String
+  userType                 String?
+  user_inactive_date       String
+  user_social_id           String?
+
+  @@index([email], map: "email_1")
+  @@index([userID], map: "userID")
+  @@index([contact_number], map: "contact_number_1")
+  @@index([b_contact], map: "b_contact_1")
+  @@index([userID, email, contact_number, country_calling_code, date_added], map: "userID_1_email_1_contact_number_1_country_calling_code_1_date_added_1")
+
+  @@map("register")
+}

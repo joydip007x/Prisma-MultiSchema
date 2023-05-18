@@ -19,20 +19,21 @@
   "files": [
     "lib/**/*"
   ],
+  "bin": {
+    "007x": "./src/generate.js"
+  },
   "scripts": {
+
+    "custom007x": "npx ts-node \"./src/generate.js\" ",
 
     "clean": "npm run clean:win && npm run clean:lin",
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || if exist lib rmdir /s /q \"lib\" ",
     "clean:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || rm -rf ./lib",
-    
-    
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && npm run mv:win && npm run mv:lin ",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
-
     "mv:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || move  \"lib\\esm\\index.js\" \"lib\\esm\\index.mjs\" ",
     "mv:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || mv lib/esm/index.js lib/esm/index.mjs",
-  
     "test": "mocha",
     "semantic-release": "semantic-release",
     "prepack": "npm run build"
@@ -47,26 +48,47 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joydi007x/prisma-unify007x.git"
+    "url": "https://github.com/joydip007x/prisma-unify007x.git"
   },
   "keywords": [
-    "npm","javascript","typescript","esm","cjs","nodejs","commonjs",
-    "ecmascript","prisma","prisma-import","prisma","schema","prisma",
-    "multiple","schema","prisma","subschema","prisma","multiple","files"
+    "npm",
+    "javascript",
+    "typescript",
+    "esm",
+    "cjs",
+    "nodejs",
+    "commonjs",
+    "ecmascript",
+    "prisma",
+    "prisma-import",
+    "prisma",
+    "schema",
+    "prisma",
+    "multiple",
+    "schema",
+    "prisma",
+    "subschema",
+    "prisma",
+    "multiple",
+    "files"
   ],
   "author": "Joydip007x",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joydi007x/prisma-unify007x.git/issues"
+    "url": "https://github.com/joydip007x/prisma-unify007x.git/issues"
   },
-  "homepage": "https://github.com/joydi007x/prisma-unify007x.git#readme",
+  "homepage": "https://github.com/joydip007x/prisma-unify007x.git#readme",
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
-    "mocha": "^10.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.7.4",
-    "semantic-release": "^19.0.3",
     "@types/chai": "^4.3.3",
-    "chai": "^4.3.6"
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "prisma": "^4.14.1",
+    "semantic-release": "^19.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.1"
   }
 }

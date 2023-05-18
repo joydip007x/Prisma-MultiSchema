@@ -1,0 +1,41 @@
+
+type DriverLogsFilesBankStatement {
+  path   String[]
+  status String?
+}
+
+type DriverLogsFilesBusinessInsurence {
+  backPath    String?
+  expiry_date String
+  frontPath   String
+  status      String
+}
+
+type DriverLogsFilesDrivingLicense {
+  backPath    String
+  expiry_date String?
+  frontPath   String
+  status      String
+}
+
+type DriverLogsFilesPassport {
+  backPath    String?
+  expiry_date String
+  frontPath   String
+  status      String
+}
+
+type DriverLogsFilesPhotoId {
+  backPath    String
+  expiry_date String?
+  frontPath   String
+  status      String
+}
+
+type DriverLogsFilesVisa {
+  backPath    String?
+  expiry_date String?
+  frontPath   String?
+  status      String
+}
+
