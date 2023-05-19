@@ -1,6 +1,6 @@
 {
   "name": "prisma-unify007x",
-  "version": "1.0.0-development",
+  "version": "1.0.0",
   "description": "Maintain Structured Schema with subschemas & imports, unify them into one schema.prisma ",
   "exports": {
     ".": {
@@ -23,9 +23,7 @@
     "007x": "./src/generate.js"
   },
   "scripts": {
-
     "custom007x": "npx ts-node \"./src/generate.js\" ",
-
     "clean": "npm run clean:win && npm run clean:lin",
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || if exist lib rmdir /s /q \"lib\" ",
     "clean:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || rm -rf ./lib",
@@ -79,16 +77,9 @@
   },
   "homepage": "https://github.com/joydip007x/prisma-unify007x.git#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.3",
-    "@types/mocha": "^9.1.1",
-    "chai": "^4.3.6",
-    "mocha": "^10.0.0",
-    "prisma": "^4.14.1",
     "semantic-release": "^19.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "@prisma/client": "^4.14.1"
   }
+  
 }
