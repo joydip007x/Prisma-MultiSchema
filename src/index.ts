@@ -29,14 +29,15 @@ function getAppRootDir () {
  
 }
 
-export async function prismaUnifier(){
+export async function prismaUnifier( test_mocha : number =0 ){
   
     var appRoot=getAppRootDir();
     var allSchemaFolder='/prisma/subschemas';
     var subschemasPath=path.join(appRoot,allSchemaFolder);
-    const mainSchemaPrismaPath=path.join( appRoot + '/prisma/schema.prisma')
+    const mainSchemaPrismaPath=path.join( appRoot + '/prisma/schema.prisma');
 
-    console.log(colorLogs.Bright,'Main Schema Generation path : ',colorLogs.Reset,mainSchemaPrismaPath,);
+    if(!test_mocha)
+        console.log(colorLogs.Bright,'Main Schema Generation path : ',colorLogs.Reset,mainSchemaPrismaPath,);
 
     const getAllFiles = function(dirPath: fs.PathLike, arrayOfFiles: string[]) {
       const files = fs.readdirSync(dirPath)
@@ -54,27 +55,36 @@ export async function prismaUnifier(){
     
     const result = getAllFiles(subschemasPath,[]);
     
+    if(!test_mocha){
+
     console.log(colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
     console.log(colorLogs.Bright,"Sub-Schemas: ",colorLogs.Reset);
-    for(let i=0; i<result.length;i++){
-        console.log(colorLogs.FgGreen, result.at(i)?.slice(result.at(i)?.indexOf("subschemas")),colorLogs.Reset)
+
+      for(let i=0; i<result.length;i++){
+              console.log(colorLogs.FgGreen, result.at(i)?.slice(result.at(i)?.indexOf("subschemas")),colorLogs.Reset)
+      }
+
     }
     
     
     if (fs.existsSync(mainSchemaPrismaPath)){
+          
+          !test_mocha &&
           console.log(colorLogs.FgRed,'Deleting Old schema.prisma and Generating New',colorLogs.Reset);
-          fs.unlinkSync(mainSchemaPrismaPath
-          );
+          fs.unlinkSync(mainSchemaPrismaPath);
     }else{
-        console.log(colorLogs.FgCyan,'No Old schema.prisma was present,Generating New',colorLogs.Reset);
+          !test_mocha &&
+          console.log(colorLogs.FgCyan,'No Old schema.prisma was present,Generating New',colorLogs.Reset);
     }
     
     
     var logStream = fs.createWriteStream(mainSchemaPrismaPath, {flags: 'wx'});
     
+   
     logStream.write('// Show  ❤ & Support : https://github.com/joydip007x/prisma-unify007x.git '+'\n');
     logStream.write('// Ignore " Error validating datasource `db`: You defined more than one datasource. " '+'\n');
-    logStream.write('// Generated in '+new Date()+'\n');
+    if(!test_mocha)
+       logStream.write('// Generated in '+new Date()+'\n');
     
     
     /** 
@@ -94,9 +104,13 @@ export async function prismaUnifier(){
                 console.error(err);
           }
     }
-    console.log(colorLogs.BgGreen,colorLogs.Bright,'Unified Schema Ready at : ',
-                colorLogs.Reset,
-                colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n\n');
+
+    if(!test_mocha)
+      console.log(colorLogs.BgGreen,colorLogs.Bright,'Unified Schema Ready at : ',
+                  colorLogs.Reset,
+                  colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n\n');
+    
+    return mainSchemaPrismaPath;
     
 }
 

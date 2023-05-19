@@ -1,0 +1,7 @@
+import { Moods } from "..\type\moody"
+
+model User {
+
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    mood Moods
+}
