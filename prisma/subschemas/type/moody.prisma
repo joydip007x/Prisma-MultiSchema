@@ -1,4 +1,0 @@
-type Moods {
-    happy Int?
-    sad  Int?
-}

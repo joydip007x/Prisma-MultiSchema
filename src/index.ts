@@ -54,11 +54,18 @@ export async function prismaUnifier( test_mocha : number =0 ){
     }
     
     const result = getAllFiles(subschemasPath,[]);
+
     
     if(!test_mocha){
 
     console.log(colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
     console.log(colorLogs.Bright,"Sub-Schemas: ",colorLogs.Reset);
+
+    if(result.length<1){
+        console.log(colorLogs.BgRed,'No Subschemas found !',colorLogs.Reset);
+        console.log("Place all your subschemas here :\n ",colorLogs.Bright,subschemasPath,colorLogs.Reset);
+        return "Follow Documentation!";
+    }
 
       for(let i=0; i<result.length;i++){
               console.log(colorLogs.FgGreen, result.at(i)?.slice(result.at(i)?.indexOf("subschemas")),colorLogs.Reset)
@@ -108,7 +115,7 @@ export async function prismaUnifier( test_mocha : number =0 ){
     if(!test_mocha)
       console.log(colorLogs.BgGreen,colorLogs.Bright,'Unified Schema Ready at : ',
                   colorLogs.Reset,
-                  colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n\n');
+                  colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n');
     
     return mainSchemaPrismaPath;
     
@@ -123,8 +130,7 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
     
     //console.log(colorLogs.Dim,'Processing : ',filePath,colorLogs.Reset);
     rl.on('line', (line) => {
-    
-      if(line.search("import")===-1 ){
+      if(line.search(/import(\s)*{ /g)===-1 ){
             writeMain.write(line);
             writeMain.write('\n')
         }
