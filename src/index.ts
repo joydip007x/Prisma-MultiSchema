@@ -130,7 +130,7 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
     
     //console.log(colorLogs.Dim,'Processing : ',filePath,colorLogs.Reset);
     rl.on('line', (line) => {
-      if(line.search(/import(\s)*{ /g)===-1 ){
+      if(line.search(/import(\s)*{[\s| \w]*}(\s)*from/g)===-1 ){
             writeMain.write(line);
             writeMain.write('\n')
         }
