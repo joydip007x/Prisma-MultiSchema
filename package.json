@@ -1,6 +1,6 @@
 {
   "name": "prisma-multischema",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Multiple Structured Schema for PRISMA & Add imports to your Prisma schemas",
   "exports": {
     ".": {
@@ -83,7 +83,6 @@
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "prisma": "^4.14.1",
-    "semantic-release": "^21.0.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   }
