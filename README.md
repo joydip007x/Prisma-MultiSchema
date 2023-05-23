@@ -1,6 +1,6 @@
-[![Tests](https://github.com/joydip007x/prisma-unify007x/actions/workflows/tests.yml/badge.svg)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/tests.yml)
-[![Snyk Security Check](https://github.com/joydip007x/prisma-unify007x/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/snyk.yml)
-[![Release](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml/badge.svg)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml)
+[![Tests](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml)
+[![Snyk Security Check](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml)
+<!-- [![Release](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml/badge.svg)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml) -->
 
 # PRISMA: MultiSchema
 
