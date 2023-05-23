@@ -7,24 +7,40 @@
 An npm package  using TypeScript to build for both the ECMAScript Module format (ESM or ES Module) and CommonJS Module format (CJS)
 to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 
-## Get Started
+# Installation
 
-1. Run `npm install` in your terminal
-1. Then run `npm run build`
-1. Update the `package.json` file "name" field with your own package name. Example `@username/package-name`
-1. Create an account with [npm](https://www.npmjs.com/signup) if you don't have one already. Also be sure to enable [two-factor authentication](https://docs.npmjs.com/configuring-two-factor-authentication)
-1. Sign in to your npm account in your terminal with `npm login`
-1. Run `npm publish --access=public` to publish your package
+```
+npm i prisma-multischema
+```
+# Usage
 
-##
+-  Go to `your project root` , create folder `prisma`
+-  Inside folder `prisma`  , create sub-folder `subschemas`
+-  Now,in `subschemas` , Create any number of prisma    schema,types , keep them in any folder/nested structure,
+-  Run in Terminal
+    ```
+    npx prisma-multischema
+    ```
+
+# Dependencies
+
+To use <b>prisma import</b> feature :
+<br>
+
+
+- Install [prisma-import](https://marketplace.visualstudio.com/items?itemName=ajmnz.prisma-import) Extension (for VS code)  
+
+- <b>Disable</b> Official [prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma) Extension
+
+>These are Optional Dependencies, If you can maintain multiple *.prisma schemas and type without <b>TYPO</b> ,you can ignore these.
+
 # Demonstration
  working example is available below -
 - JavaScript : [Prisma-MultiSchema-JS-Example](https://github.com/joydip007x/Prisma-MultiSchema-JS-Example)
 
 - TypeScript : [Prisma-MultiSchema-TS-Example](https://github.com/joydip007x/Prisma-MultiSchema-TS-Example)
 
-#
-### Testing
 
-1. Install developer dependencies using the following command in your terminal `npm i -D mocha @types/mocha chai @types/chai ts-node`
-2. Run `npm test` in your terminal from the root folder of the project
+## Authors
+
+- [@joydip007x](https://www.github.com/joydip007x)
