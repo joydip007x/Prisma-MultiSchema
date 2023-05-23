@@ -99,7 +99,6 @@ export async function prismaUnifier( test_mocha : number =0 ){
     
    
     logStream.write('// Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git '+'\n');
-    logStream.write('// Ignore " Error validating datasource `db`: You defined more than one datasource. " '+'\n');
     if(!test_mocha)
        logStream.write('// Generated in '+new Date()+'\n');
     
@@ -128,9 +127,16 @@ async function processSubschemas(result: string | any[],logStream: fs.WriteStrea
     try {
         
         const data = fs.readFileSync(file, 'utf8');
-        console.log('DATA', path.extname(file));
-        if(data.search(/#exclude/g)===-1 && path.extname(file)==".prisma")
+        //console.log('DATA', path.extname(file));
+        if(data.search(/#exclude/g)===-1 && path.extname(file)==".prisma"){
+
+            if(data.search('datasource')!=-1){
+               logStream.write('\n// IGNORE " Error validating datasource `db`: You defined more than one datasource. " '+'\n');
+               logStream.write('// Reason: DB is defined in 2Places,  one in subschemas folder , and this is newly generated ');
+               logStream.write('// This will never cause any error \n');
+            }
             await processLineByLine(file,logStream);
+        }
       
       }catch (err) {
             console.error(err);

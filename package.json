@@ -24,7 +24,7 @@
   },
   "scripts": {
     "custom007x": "npx ts-node \"./src/generate.js\" ",
-    "clean": "npm run clean:win && npm run clean:lin",
+    "clean": "npm run clean:win || npm run clean:lin",
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || if exist lib rmdir /s /q \"lib\" ",
     "clean:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || rm -rf ./lib",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
@@ -49,7 +49,9 @@
     "url": "https://github.com/joydip007x/Prisma-MultiSchema.git"
   },
   "keywords": [
-    "npm",
+    "npm","Prisma Schema Composer",
+    "Prisma Schema Manager",
+    "Prisma Schema Aggregator", "Multi-schema support",
     "javascript",
     "typescript",
     "esm",
@@ -59,7 +61,7 @@
     "ecmascript",
     "prisma",
     "prisma-import",
-    "prisma-multischema",
+    "prisma-multischema",    "prisma Multischema",
     "schema",
     "prisma-subschema",
     "multiple",
