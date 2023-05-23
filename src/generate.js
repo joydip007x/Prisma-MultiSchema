@@ -2,10 +2,14 @@
 const { prismaUnifier } = require('prisma-multischema');
 const { exec } = require('node:child_process');
 
+function sleep(ms){
+    return new Promise(res=>setTimeout(res,ms));
+}
 async function commands(){
 
     // console.log('started Prisma-Unify');
     await prismaUnifier();
+    await sleep(500);
     console.log("\x1b[33m","Wait ! Running: ","\x1b[1m","npx prisma generate","\x1b[0m");
     const gen= exec('npx prisma generate')
 
@@ -16,8 +20,11 @@ async function commands(){
         console.log(" Start Using :"," import { PrismaClient } from '@prisma/client'\n",
         "               const prisma = new PrismaClient()");
 
-    },3000);
+    },500);
     
    
 }
 commands();
+
+
+  

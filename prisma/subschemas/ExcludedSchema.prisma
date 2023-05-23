@@ -1,0 +1,7 @@
+#exclude
+
+import { Moods } from "type\moody"
+type extraSchema{
+    
+    mood Moods
+}

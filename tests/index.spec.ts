@@ -25,9 +25,18 @@ describe('PRISMA UNIFY ', () => {
   });
 
   it('should return Unified Schema', async () => {
-    const expected = fs.readFileSync(path.join(process.cwd(),'/tests/expectedSchema'), 'utf8');
-    const actual =fs.readFileSync(path.join(await prismaUnifier(1)), 'utf8'); 
-    assert.notDeepEqual(actual, expected);
+    const expected = JSON.stringify(fs.readFileSync(path.join(process.cwd(),'/tests/expectedSchema'), 'utf8'));
+    const filePath=await prismaUnifier(1);
+    await sleep(100);
+    const actual =JSON.stringify( fs.readFileSync(path.join(filePath), 'utf8'));
+
+    assert.strictEqual(actual, expected);
+    
+ 
   });
 });
+
+function sleep(ms: number){
+  return new Promise(res=>setTimeout(res,ms));
+}
 

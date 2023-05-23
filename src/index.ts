@@ -14,6 +14,7 @@ import * as path from 'path'
 import {colorLogs} from './utility/colorLogs'
 import lineReader, { createInterface } from "readline";
 import { once } from 'node:events';
+import { exit } from 'process';
 
 
 /**
@@ -36,21 +37,31 @@ export async function prismaUnifier( test_mocha : number =0 ){
     var subschemasPath=path.join(appRoot,allSchemaFolder);
     const mainSchemaPrismaPath=path.join( appRoot + '/prisma/schema.prisma');
 
-    if(!test_mocha)
-        console.log(colorLogs.Bright,'Main Schema Generation path : ',colorLogs.Reset,mainSchemaPrismaPath,);
+    if(!test_mocha){
+        console.log('⏩',colorLogs.Bright,'MainSchema Generation path : ',colorLogs.Reset,mainSchemaPrismaPath,);
+        console.log('⏰',colorLogs.Bright,'Searching Sub-Schema\'s in : ',colorLogs.Reset,subschemasPath);
+    }
 
     const getAllFiles = function(dirPath: fs.PathLike, arrayOfFiles: string[]) {
-      const files = fs.readdirSync(dirPath)
-      arrayOfFiles = arrayOfFiles || []
-    
-      files.forEach(function(file) {
-        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-          arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
-        } else {
-          arrayOfFiles.push(path.join(dirPath.toString(), "/", file))
-        }
-      })
-      return arrayOfFiles
+
+      try {
+        const files = fs.readdirSync(dirPath)
+        arrayOfFiles = arrayOfFiles || []
+      
+        files.forEach(function(file) {
+          if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
+          } else {
+            arrayOfFiles.push(path.join(dirPath.toString(), "/", file))
+          }
+        })
+        return arrayOfFiles
+        
+      } catch (error) {
+          
+          errorLogs(subschemasPath);
+          exit(0);
+      }
     }
     
     const result = getAllFiles(subschemasPath,[]);
@@ -58,14 +69,13 @@ export async function prismaUnifier( test_mocha : number =0 ){
     
     if(!test_mocha){
 
-    console.log(colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
-    console.log(colorLogs.Bright,"Sub-Schemas: ",colorLogs.Reset);
-
-    if(result.length<1){
-        console.log(colorLogs.BgRed,'No Subschemas found !',colorLogs.Reset);
-        console.log("Place all your subschemas here :\n ",colorLogs.Bright,subschemasPath,colorLogs.Reset);
-        return "Follow Documentation!";
+      if(result.length<1){
+        errorLogs(subschemasPath);
+        exit(0);
     }
+    console.log('✔',colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
+    console.log('👉',colorLogs.Bright,"Sub-Schemas: ",colorLogs.Reset);
+
 
       for(let i=0; i<result.length;i++){
               console.log(colorLogs.FgGreen, result.at(i)?.slice(result.at(i)?.indexOf("subschemas")),colorLogs.Reset)
@@ -77,18 +87,18 @@ export async function prismaUnifier( test_mocha : number =0 ){
     if (fs.existsSync(mainSchemaPrismaPath)){
           
           !test_mocha &&
-          console.log(colorLogs.FgRed,'Deleting Old schema.prisma and Generating New',colorLogs.Reset);
+          console.log('ℹ',colorLogs.FgRed,'Deleting Old schema.prisma and Generating New',colorLogs.Reset);
           fs.unlinkSync(mainSchemaPrismaPath);
     }else{
           !test_mocha &&
-          console.log(colorLogs.FgCyan,'No Old schema.prisma was present,Generating New',colorLogs.Reset);
+          console.log('ℹ',colorLogs.FgCyan,'No Old schema.prisma was present,Generating New',colorLogs.Reset);
     }
     
     
     var logStream = fs.createWriteStream(mainSchemaPrismaPath, {flags: 'wx'});
     
    
-    logStream.write('// Show  ❤ & Support : https://github.com/joydip007x/prisma-unify007x.git '+'\n');
+    logStream.write('// Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git '+'\n');
     logStream.write('// Ignore " Error validating datasource `db`: You defined more than one datasource. " '+'\n');
     if(!test_mocha)
        logStream.write('// Generated in '+new Date()+'\n');
@@ -100,27 +110,31 @@ export async function prismaUnifier( test_mocha : number =0 ){
       @wx {flags: 'wx'} to delete if  file exits, and write on file
     */
       
-
-    for (var i = 0; i <result.length; i++){
+    await processSubschemas(result,logStream)
     
-        try {
-                const data = fs.readFileSync(result[i], 'utf8');
-                await processLineByLine(result[i],logStream);
-          
-        }catch (err) {
-                console.error(err);
-          }
-    }
-
     if(!test_mocha)
-      console.log(colorLogs.Bright,'Unified Schema Ready at : ',
+      console.log('🎯',colorLogs.Bright,'Unified Schema Ready at : ',
                   colorLogs.Reset,
                   colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n');
+    
     
     return mainSchemaPrismaPath;
     
 }
+async function processSubschemas(result: string | any[],logStream: fs.WriteStream){
 
+   for await(const file of result){
+    
+    try {
+        const data = fs.readFileSync(file, 'utf8');
+        if(data.search(/#exclude/g)===-1)
+            await processLineByLine(file,logStream);
+      
+      }catch (err) {
+            console.error(err);
+      }
+  }
+}
 async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream) {
   try {
     const rl = createInterface({
@@ -128,7 +142,6 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
       crlfDelay: Infinity,
     });
     
-    //console.log(colorLogs.Dim,'Processing : ',filePath,colorLogs.Reset);
     rl.on('line', (line) => {
       if(line.search(/import(\s)*{[\s| \w]*}(\s)*from/g)===-1 ){
             writeMain.write(line);
@@ -137,12 +150,20 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
     });
 
     await once(rl, 'close');
-    //console.log('File processed.');
 
   } catch (err) {
     console.error(err);
   }
 }; 
+
+function errorLogs(subpath: string){
+
+  console.log('❌',colorLogs.BgRed,'No Subschemas found !',colorLogs.Reset);
+  console.log('👉',"Place all your subschemas here :\n ",colorLogs.Bright,subpath, "\\",colorLogs.Reset);
+  console.log('❤',"Follow Documentation: ",colorLogs.FgYellow,
+                            "https://github.com/joydip007x/Prisma-MultiSchema.git#readme"
+                            ,colorLogs.Reset);
+}
 
 export function TestRun() {
   const message = 'joydip007x\'s first  npm package!';

@@ -1,4 +1,4 @@
-// Show  ❤ & Support : https://github.com/joydip007x/prisma-unify007x.git 
+// Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git 
 // Ignore " Error validating datasource `db`: You defined more than one datasource. " 
 generator client {
   provider = "prisma-client-js"
