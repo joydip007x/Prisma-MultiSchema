@@ -73,7 +73,7 @@ export async function prismaUnifier( test_mocha : number =0 ){
         errorLogs(subschemasPath);
         exit(0);
     }
-    console.log('✔',colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
+    console.log('✅',colorLogs.Bright,'Total No. of Subschemas found: '+result.length,colorLogs.Reset);
     console.log('👉',colorLogs.Bright,"Sub-Schemas: ",colorLogs.Reset);
 
 
@@ -126,8 +126,10 @@ async function processSubschemas(result: string | any[],logStream: fs.WriteStrea
    for await(const file of result){
     
     try {
+        
         const data = fs.readFileSync(file, 'utf8');
-        if(data.search(/#exclude/g)===-1)
+        console.log('DATA', path.extname(file));
+        if(data.search(/#exclude/g)===-1 && path.extname(file)==".prisma")
             await processLineByLine(file,logStream);
       
       }catch (err) {

@@ -1,6 +1,11 @@
-# PRISMA-Unified
+[![Tests](https://github.com/joydip007x/prisma-unify007x/actions/workflows/tests.yml/badge.svg)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/tests.yml)
+[![Snyk Security Check](https://github.com/joydip007x/prisma-unify007x/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/snyk.yml)
+[![Release](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml/badge.svg)](https://github.com/joydip007x/prisma-unify007x/actions/workflows/release.yml)
 
-An npm package  using TypeScript to build for both the ECMAScript Module format (i.e. ESM or ES Module) and CommonJS Module format (CJS). It can be used in Node.js and browser applications.
+# PRISMA: MultiSchema
+
+An npm package  using TypeScript to build for both the ECMAScript Module format (ESM or ES Module) and CommonJS Module format (CJS)
+to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 
 ## Get Started
 
@@ -11,19 +16,15 @@ An npm package  using TypeScript to build for both the ECMAScript Module format 
 1. Sign in to your npm account in your terminal with `npm login`
 1. Run `npm publish --access=public` to publish your package
 
+##
+# Demonstration
+ working example is available below -
+- JavaScript : [Prisma-MultiSchema-JS-Example](https://github.com/joydip007x/Prisma-MultiSchema-JS-Example)
+
+- TypeScript : [Prisma-MultiSchema-TS-Example](https://github.com/joydip007x/Prisma-MultiSchema-TS-Example)
+
+#
 ### Testing
 
 1. Install developer dependencies using the following command in your terminal `npm i -D mocha @types/mocha chai @types/chai ts-node`
-1. Create a new file `.mocharc.json` in the root directory with the following contents:
-   ```json
-   {
-     "extension": ["ts"],
-     "spec": "./**/*.spec.ts",
-     "require": "ts-node/register"
-   }
-   ```
-1. Create a `tests` folder
-1. Create an `index.spec.ts` file in the `tests` folder
-1. Write unit tests in the `index.spec.ts` file to test the code in `index.ts`
-1. Add a `"test"` property in the `package.json` file and give it a value of `"mocha"`
-1. Run `npm test` in your terminal from the root folder of the project
+2. Run `npm test` in your terminal from the root folder of the project
