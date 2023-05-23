@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { prismaUnifier } = require('prisma-unify007x');
+const { prismaUnifier } = require('prisma-multischema');
 const { exec } = require('node:child_process');
 
 async function commands(){

@@ -113,7 +113,7 @@ export async function prismaUnifier( test_mocha : number =0 ){
     }
 
     if(!test_mocha)
-      console.log(colorLogs.BgGreen,colorLogs.Bright,'Unified Schema Ready at : ',
+      console.log(colorLogs.Bright,'Unified Schema Ready at : ',
                   colorLogs.Reset,
                   colorLogs.FgBlue, mainSchemaPrismaPath,colorLogs.Reset,'\n');
     
