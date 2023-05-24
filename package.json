@@ -1,7 +1,7 @@
 {
   "name": "prisma-multischema",
-  "version": "1.0.5",
-  "description": "Multiple Structured Schema for PRISMA & Add imports to your Prisma schemas",
+  "version": "1.0.6",
+  "description": "Prisma Multiple Schema Support with Structure & Add imports to your Prisma schemas",
   "exports": {
     ".": {
       "import": {
@@ -49,31 +49,9 @@
     "url": "https://github.com/joydip007x/Prisma-MultiSchema.git"
   },
   "keywords": [
-    "npm",
-    "Prisma Schema Composer",
-    "Prisma Schema Manager",
-    "Prisma Schema Aggregator",
-    "Multi-schema support",
-    "javascript",
-    "typescript",
-    "esm",
-    "cjs",
-    "nodejs",
-    "commonjs",
-    "ecmascript",
-    "prisma",
-    "prisma-import",
-    "prisma-multischema",
-    "prisma Multischema",
-    "schema",
-    "prisma-subschema",
-    "multiple",
-    "schema",
-    "prisma",
-    "subschema",
-    "prisma",
-    "multiple",
-    "files"
+    "Prisma Schema Multiple","Prisma Schema Aggregator","Multi-schema support",
+    "prisma","prisma-import","prisma-multischema","prisma Multischema",
+    "prisma-subschema","prisma","Prisma Multiple Schema"
   ],
   "author": "Joydip007x",
   "license": "MIT",

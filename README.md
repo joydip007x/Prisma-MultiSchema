@@ -10,7 +10,7 @@
 
 # Prisma: MultiSchema    <img height="21" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"> <img height="20.5" src="https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges">
 
-Prisma normally limits your schema to one file, but with <b>prisma-multischema</b>, you can write multiple schema files in an organized manner without any restrictions.
+Prisma normally limits your schema to one file, but with <b>prisma-multischema</b>, you can write multiple prisma schema files in an organized manner without any restrictions.
 
 For Multiple files inter-relation you can  import schemas , to manage the relation.
 
