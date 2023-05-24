@@ -103,7 +103,7 @@ model Bookmark {
     userId String @db.ObjectId
 }
 ```
->## Generated <b>schema.prisma</b> [root/prisma/schema.prisma]
+>Generated <b>schema.prisma</b> [root/prisma/schema.prisma]
 > [ after `npx prisma-multischema` ]
 ```prisma
 generator client {
