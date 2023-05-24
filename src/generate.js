@@ -20,7 +20,7 @@ async function commands(){
         console.log(" Start Using :"," import { PrismaClient } from '@prisma/client'\n",
         "               const prisma = new PrismaClient()");
 
-    },1500);
+    },1000);
     
    
 }
