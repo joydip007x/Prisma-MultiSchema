@@ -22,6 +22,9 @@ to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 ```
 npm i prisma-multischema
 ```
+```
+yarn add prisma-multischema
+```
 # Usage
 
 -  Place all your schemas in  `ProjectRoot/prisma/subschemas` Folder.<br>
