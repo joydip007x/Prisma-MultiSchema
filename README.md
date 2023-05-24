@@ -12,6 +12,8 @@
 
 Prisma normally limits your schema to one file, but with <b>prisma-multischema</b>, you can write multiple schema files in an organized manner without any restrictions.
 
+For Multiple files inter-relation you can  import schemas , to manage the relation.
+
 Built using TypeScript to for ES Module and CommonJS (CJS),
 to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 
@@ -101,7 +103,8 @@ model Bookmark {
     userId String @db.ObjectId
 }
 ```
->## Generated <b>schema.prisma</b>
+>## Generated <b>schema.prisma</b> [root/prisma/schema.prisma]
+> [ after `npx prisma-multischema` ]
 ```prisma
 generator client {
   provider = "prisma-client-js"
@@ -112,18 +115,17 @@ datasource db {
   url      = env("PRISMA_DATABASE_URL")
 }
 
-model Bookmark {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId 
-  title       String
-  
-  user        User    @relation(fields: [userId], references: [id])
-  userId      String  @db.ObjectId
-}
-
 model User {
   id       String     @id @default(auto()) @map("_id") @db.ObjectId
   email    String     @unique
   Bookmark Bookmark[]
+}
+
+model Bookmark {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId 
+  title       String
+  user        User    @relation(fields: [userId], references: [id])
+  userId      String  @db.ObjectId
 }
 ```
 >https://www.prisma.io/docs
@@ -142,7 +144,7 @@ model User {
     "name": "my-app",
     "version": "1.0.0",
     "scripts": {
-        "unify": "npx prisma-multischema,
+        "unify": "npx prisma-multischema",
         "start": "npm run unify && node index.js",
         ...
       }
@@ -150,11 +152,8 @@ model User {
     ```
     <br>Now it will run & regenerate Main Schema everytime the project starts.
 # Dependencies (Optional)
-
 To use <b>prisma import</b> feature : (<i>if you are using VS code, its better to use these</i>)<br>
 <br>
-
-
 - Install [prisma-import](https://marketplace.visualstudio.com/items?itemName=ajmnz.prisma-import) Extension (for VS code)  
 
 - <b>Disable</b> Official [prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma) Extension (for VS code)
