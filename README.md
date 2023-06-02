@@ -1,6 +1,6 @@
-[![Tests](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml)
-[![Snyk Security Check](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml) ![Last](https://img.shields.io/github/last-commit/joydip007x/Prisma-MultiSchema)
-
+[![NPM](https://img.shields.io/npm/v/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema?activeTab=readme) [![NPM](https://badgen.net/npm/license/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema)
+[![Tests](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml)  [![NPM](https://img.shields.io/github/languages/code-size/joydip007x/Prisma-MultiSchema?label=size)](https://github.com/joydip007x/Prisma-MultiSchema)
+[![Snyk](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml) 
 
 <p align="center">
 
@@ -8,7 +8,7 @@
 
 </p>
 
-# Prisma: MultiSchema    <img height="21" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"> <img height="20.5" src="https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges">
+# Prisma: MultiSchema [![NPM](https://badgen.net/npm/types/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema)
 
 Prisma normally limits your schema to one file, but with <b>prisma-multischema</b>, you can write multiple prisma schema files in an organized manner without any restrictions.
 
@@ -42,7 +42,8 @@ Like this :
         │   │   └───user
         │   │   │    └───userData.prisma
         │   │   │    └───validity.prisma
-        │   │   └───...   
+        │   │   ├───base.prisma  
+        |   |   └───...  
         │   └───schema.prisma   <-- will be Auto-Generated
         ├───src
         │   └───...
@@ -106,8 +107,8 @@ model Bookmark {
     userId String @db.ObjectId
 }
 ```
->Generated <b>schema.prisma</b> [root/prisma/schema.prisma]
-> [ after `npx prisma-multischema` ]
+>Generated <b>schema.prisma</b> [root/prisma/schema.prisma]</br>
+> after Running  `npx prisma-multischema`
 ```prisma
 generator client {
   provider = "prisma-client-js"
@@ -135,10 +136,10 @@ model Bookmark {
 
 # Additional
 - prisma schema files starting with `#exclude` will be excluded in final schema
-- Executing `npx prisma-multischema` 
-    - Automatically runs :  `npx prisma generate`
+- Executing `npx prisma-multischema`  will
+    - <b>Automatically run</b> :  `npx prisma generate`
     <br>So, You don't need to update `@prisma/client` manually,  each time the schema  updates
-    - Automatically runs : `npx prisma format`
+    - <b>Automatically run</b> : `npx prisma format`
     <br> because, Everyone likes clean code
 
 - Add `npx prisma-multischema` command as a prefix to your <b>start</b> script in package.json. 
@@ -165,13 +166,11 @@ To use <b>prisma import</b> feature : (<i>if you are using VS code, its better t
 
 
 
-## Authors
+## Authors - [@joydip007x](https://www.github.com/joydip007x)
+<br>
 
-- [@joydip007x](https://www.github.com/joydip007x)
-
-<br><br>
->## To-Do
+## Tasks remaining : 
 - Add Support for keeping prisma's in different folder and aggregate them ( like `root/src/auth/auth.prisma `)
 
 - Add Command Flags
-- Handle/Remove `" Error validating datasource db: "` Warning
+- Handle/Remove `" Error validating datasource db: "`  Warning

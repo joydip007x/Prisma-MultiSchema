@@ -1,0 +1,3 @@
+import { prismaUnifier } from ".";
+
+prismaUnifier();
