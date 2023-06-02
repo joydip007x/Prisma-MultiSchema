@@ -28,8 +28,8 @@ const generatedComment=
 ///// ≡≡≡≡≡≡≡≡≡     ▼△▼△ 𝙲𝙷𝙰𝙽𝙶𝙴 𝐎𝐍𝐋𝐘 𝙱𝙴𝙻𝙾𝚆 𝚃𝙷𝙸𝚂 𝙻𝙸𝙽𝙴 ▼△▼△	    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡/////
 //////////////////////////////////////////////////////////////////////////////////////
 \n`
-const matchString='^(\/)*'
-const regExp=new RegExp(matchString, 'g');
+const matchString='^//(/)*'
+const regExp=new RegExp(matchString);
 
 /**
  *  allSchemaFolder: path to subschemas from src directory
@@ -203,12 +203,11 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
                 }
                 break;
         case 1: ///console.log('comment switch'); 
-                const yy=regExp.test(line);
                 if( line!='\n' && line!="" && generatedComment.search(line)!=-1 ){
                  ///  console.log('mc ',/*JSON.stringify(line)*/);     
                   //return;              
                 }
-                else if( yy ){
+                else if( regExp.test(line) ){
                     
                     //console.log('aa',line ,regExp.test(line) );
                     console.log('commented db souce',line);
@@ -217,9 +216,9 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
                     {
                       if(line.at(startInd)!='/')break;
                     }
-                    line=line.substring(startInd);
-                    writeMain.write(line);
+                    writeMain.write(line.substring(startInd));
                     writeMain.write('\n');
+                    fs.createWriteStream('temp.prisma', {flags: 'a'}).write(line+'\n');
                    // line.slice(/\/\//)
                 }
                 else{
@@ -227,7 +226,7 @@ async function processLineByLine(filePath:fs.PathLike, writeMain: fs.WriteStream
                   console.log('Uncommented DB src',line); 
                   writeMain.write(line);
                   writeMain.write('\n');
-                  fs.createWriteStream('temp.prisma', {flags: 'a'}).write(line+'\n');
+                  fs.createWriteStream('temp.prisma', {flags: 'a'}).write('//'+line+'\n');
                 }
                 break;
 

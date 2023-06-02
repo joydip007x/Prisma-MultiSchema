@@ -1,10 +1,11 @@
 // Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git 
-// Generated in Fri Jun 02 2023 19:16:38 GMT+0600 (Bangladesh Standard Time)
+// Generated in Fri Jun 02 2023 19:29:32 GMT+0600 (Bangladesh Standard Time)
 
-//generator client {                  
-   provider = "prisma-client-js" //
-// }
- datasource db {
+
+generator client {                  
+  provider = "prisma-client-js" //
+}
+datasource db {
    provider = "mongodb"
    url      = env("PRISMA_DATABASE_URL")
  }
