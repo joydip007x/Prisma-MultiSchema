@@ -1,4 +1,4 @@
-#exclude
+//#exclude
 
 import { Moods } from "type\moody"
 type extraSchema{

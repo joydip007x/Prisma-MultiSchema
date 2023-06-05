@@ -1,14 +1,12 @@
-// Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git 
-// Generated in Fri Jun 02 2023 19:29:32 GMT+0600 (Bangladesh Standard Time)
-
+//🧩Don't Edit this file.✨Generated in Mon Jun 05 2023 15:37:21 GMT+0600 (Bangladesh Standard Time)✨
 
 generator client {                  
-  provider = "prisma-client-js" //
+provider = "prisma-client-js" //
 }
 datasource db {
-   provider = "mongodb"
-   url      = env("PRISMA_DATABASE_URL")
- }
+provider = "mongodb"  //tell me 
+url      = env("PRISMA_DATABASE_URL") //yoyoyo
+}
 type Moods {
     happy Int?
     sad  Int?

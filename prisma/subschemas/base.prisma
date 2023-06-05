@@ -8,11 +8,11 @@
 ///// ≡≡≡≡≡≡≡≡≡     ▼△▼△ 𝙲𝙷𝙰𝙽𝙶𝙴 𝐎𝐍𝐋𝐘 𝙱𝙴𝙻𝙾𝚆 𝚃𝙷𝙸𝚂 𝙻𝙸𝙽𝙴 ▼△▼△	    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡/////
 //////////////////////////////////////////////////////////////////////////////////////
 
-
-generator client {                  
-  provider = "prisma-client-js" //
-}
-datasource db {
-   provider = "mongodb"
-   url      = env("PRISMA_DATABASE_URL")
- }
+//
+//generator client {                  
+//provider = "prisma-client-js" //
+//}
+//datasource db {
+// provider = "mongodb"  //tell me 
+// url      = env("PRISMA_DATABASE_URL") //yoyoyo
+//}

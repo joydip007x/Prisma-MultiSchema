@@ -1,14 +1,10 @@
-// Show  ❤ & Support : https://github.com/joydip007x/Prisma-MultiSchema.git 
 
-// IGNORE " Error validating datasource `db`: You defined more than one datasource. " 
-// Reason: DB is defined in 2Places,  one in subschemas folder , and this is newly generated // This will never cause any error 
-generator client {
-  provider = "prisma-client-js"
+generator client {                  
+provider = "prisma-client-js" //
 }
-
 datasource db {
-  provider = "mongodb"
-  url      = env("PRISMA_DATABASE_URL")
+provider = "mongodb"  //tell me 
+url      = env("PRISMA_DATABASE_URL") //yoyoyo
 }
 type Moods {
     happy Int?

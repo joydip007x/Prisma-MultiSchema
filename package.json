@@ -1,6 +1,6 @@
 {
   "name": "prisma-multischema",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Prisma Multiple Schema Support with Structure & Add imports to your Prisma schemas",
   "exports": {
     ".": {
@@ -17,23 +17,25 @@
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
   "files": [
-    "lib/**/*"
+    "lib/**/*",
+    "/bin"
   ],
   "bin": {
-    "007x": "./src/generate.js"
+    "prisma-multischema": "./bin/run"
   },
   "scripts": {
     "custom007x": "npx ts-node \"./src/generate.js\" ",
     "clean": "npm run clean:win || npm run clean:lin",
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || if exist lib rmdir /s /q \"lib\" ",
     "clean:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || rm -rf ./lib",
+
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && npm run mv:win && npm run mv:lin ",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    
     "mv:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || move  \"lib\\esm\\index.js\" \"lib\\esm\\index.mjs\" ",
     "mv:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || mv lib/esm/index.js lib/esm/index.mjs",
     "test": "mocha",
-    "semantic-release": "semantic-release",
     "prepack": "npm run build"
   },
   "release": {

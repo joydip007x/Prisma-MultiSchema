@@ -1,4 +1,4 @@
-[![NPM](https://img.shields.io/npm/v/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema?activeTab=readme) [![NPM](https://badgen.net/npm/license/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema)
+[![NPM](https://img.shields.io/npm/v/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema?activeTab=readme) [![NPM](https://badgen.net/npm/license/prisma-multischema)](https://github.com/joydip007x/Prisma-MultiSchema/blob/main/LICENSE)
 [![Tests](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml)  [![NPM](https://img.shields.io/github/languages/code-size/joydip007x/Prisma-MultiSchema?label=size)](https://github.com/joydip007x/Prisma-MultiSchema)
 [![Snyk](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml) 
 
@@ -17,20 +17,31 @@ For Multiple files inter-relation you can  import schemas , to manage the relati
 Built using TypeScript to for ES Module and CommonJS (CJS),
 to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 
+<details close >
+<summary > 
+    
 # Installation
-
+</summary>
+<p align="center">
+    
 ```
 npm i prisma-multischema
 ```
 ```
 yarn add prisma-multischema
 ```
+</p>
+</details>
+
+<details close >
+<summary > 
+    
 # Usage
+</summary>
+<p align="center">
 
 -  Place all your schemas in  `ProjectRoot/prisma/subschemas` Folder.<br>
 Like this :  
-
-
     ```st
     project_root 
         ├───node_modules
@@ -58,14 +69,27 @@ Like this :
     ```bash
     npx prisma-multischema
     ```
+</p>
+</details>
 
-# Demonstration
- working example is available below -
+<details close >
+<summary > 
+    
+# Project Demonstration
+</summary>
+<p align="center">
+
+working example is available below -
 - <b>JavaScript</b> : [Prisma-MultiSchema-JS-Example](https://github.com/joydip007x/Prisma-MultiSchema-JS-Example)
-
 - <b>TypeScript</b> : [Prisma-MultiSchema-TS-Example](https://github.com/joydip007x/Prisma-MultiSchema-TS-Example)
-
+</p>
+</details>
+<details close >
+<summary > 
+    
 # Example
+</summary>
+<p align="center">
 
 Let's go with two schemas <b>User</b> and <b>Bookmark</b> on different files ,where the relation is -
 - A User can have many bookmarks
@@ -109,7 +133,7 @@ model Bookmark {
 ```
 >Generated <b>schema.prisma</b> [root/prisma/schema.prisma]</br>
 > after Running  `npx prisma-multischema`
-```prisma
+```Prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -133,9 +157,17 @@ model Bookmark {
 }
 ```
 >https://www.prisma.io/docs
+</p>
+</details>
 
+<details close >
+<summary > 
+    
 # Additional
-- prisma schema files starting with `#exclude` will be excluded in final schema
+</summary>
+<p align="center">
+
+- prisma schema files starting with header `//#exclude` will be excluded in final schema
 - Executing `npx prisma-multischema`  will
     - <b>Automatically run</b> :  `npx prisma generate`
     <br>So, You don't need to update `@prisma/client` manually,  each time the schema  updates
@@ -155,7 +187,15 @@ model Bookmark {
     }
     ```
     <br>Now it will run & regenerate Main Schema everytime the project starts.
-# Dependencies (Optional)
+<br></p>
+</details>
+<details close >
+<summary > 
+ 
+# Dependencies (optional)
+</summary>
+<p align="center">
+
 To use <b>prisma import</b> feature : (<i>if you are using VS code, its better to use these</i>)<br>
 <br>
 - Install [prisma-import](https://marketplace.visualstudio.com/items?itemName=ajmnz.prisma-import) Extension (for VS code)  
@@ -163,14 +203,21 @@ To use <b>prisma import</b> feature : (<i>if you are using VS code, its better t
 - <b>Disable</b> Official [prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma) Extension (for VS code)
 
 >These are <b>Optional Dependencies</b>, If you can maintain multiple *.prisma schemas  without <b>TYPO</b> ,you can ignore these.
+</p>
+</details>
+<details close >
+<summary > 
+  
+# To-do's
+</summary>
+<p align="center">
 
-
-
-## Authors - [@joydip007x](https://www.github.com/joydip007x)
-<br>
-
-## Tasks remaining : 
 - Add Support for keeping prisma's in different folder and aggregate them ( like `root/src/auth/auth.prisma `)
 
 - Add Command Flags
-- Handle/Remove `" Error validating datasource db: "`  Warning
+- ~~Handle/Remove `" Error validating datasource db: "`  Warning~~ Fixed
+
+</p>
+</details>
+
+## Authors - [@joydip007x](https://www.github.com/joydip007x)

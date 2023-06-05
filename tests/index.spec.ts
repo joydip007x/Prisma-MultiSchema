@@ -4,8 +4,8 @@ import { assert } from 'chai';
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { TestRun, goodBye,prismaUnifier } from '../src/index';
-import npmPackage from '../src/index';
+import { TestRun, goodBye } from '../src/index';
+import { prismaUnifier } from '../src/prismaUnify';
 
 describe('Package Start : HELLO ', () => {
   it('should be a function', () => {
