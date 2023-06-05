@@ -27,7 +27,7 @@ describe('PRISMA UNIFY ', () => {
   it('should return Unified Schema', async () => {
     const expected = JSON.stringify(fs.readFileSync(path.join(process.cwd(),'/tests/expectedSchema'), 'utf8'));
     const filePath=await prismaUnifier(1);
-    await sleep(1000);
+    await sleep(1500);
     const actual =JSON.stringify( fs.readFileSync(path.join(filePath), 'utf8'));
 
     assert.strictEqual(actual, expected);
