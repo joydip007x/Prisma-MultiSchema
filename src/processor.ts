@@ -6,7 +6,8 @@ import { exit } from 'process';
 
 import { errorLogs, generatedComment } from './logger';
 import { subschemasPath } from './prismaUnify';
-import { createInterface } from 'node:readline';
+import { createInterface } from 'readline';
+;
 
 const matchString='^( )*//(/)*'
 const regExp=new RegExp(matchString);
