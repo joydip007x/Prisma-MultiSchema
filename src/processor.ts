@@ -5,9 +5,8 @@ import { exit } from 'process';
 
 
 import { errorLogs, generatedComment } from './logger';
-import { colorLogs } from './utility/colorLogs';
-import { createInterface } from 'node:readline/promises';
 import { subschemasPath } from './prismaUnify';
+import { createInterface } from 'node:readline';
 
 const matchString='^( )*//(/)*'
 const regExp=new RegExp(matchString);
