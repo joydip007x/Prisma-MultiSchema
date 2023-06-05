@@ -17,7 +17,7 @@ For Multiple files inter-relation you can  import schemas , to manage the relati
 Built using TypeScript to for ES Module and CommonJS (CJS),
 to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 
-<details close >
+<details open >
 <summary > 
     
 # Installation
