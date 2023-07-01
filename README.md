@@ -41,7 +41,7 @@ yarn add prisma-multischema
 </summary>
 <p align="center">
     
-- #### How to Use Tutorial : ✨[YT Link](https://youtu.be/4GOuJLvGVko)
+- #### How to Use Tutorial : 📚[MediumBlog](https://medium.com/@joydip007x/how-to-use-multiple-schema-in-prisma-40cc6b6f8d9c)  ||   ✨[YT Link](https://youtu.be/4GOuJLvGVko) 
 -  Place all your schemas in  `ProjectRoot/prisma/subschemas` Folder.<br>
 Like this :  
     ```st
