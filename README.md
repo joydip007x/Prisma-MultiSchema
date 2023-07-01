@@ -2,10 +2,10 @@
 [![Tests](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/tests.yml)  [![NPM](https://img.shields.io/github/languages/code-size/joydip007x/Prisma-MultiSchema?label=size)](https://github.com/joydip007x/Prisma-MultiSchema)
 [![Snyk](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/joydip007x/Prisma-MultiSchema/actions/workflows/snyk.yml) 
 
+
 <p align="center">
-
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTU5NmYyYzI0NGU2NTI4YTUyY2ZjN2IyZjBiY2QzYWIwZmRjMDQ2MCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/cNWy8aU7WT0V2hwiUy/giphy.gif">
-
+  <img media="(prefers-color-scheme: light)" src="logo/logoDark.gif#gh-dark-mode-only" />
+  <img media="(prefers-color-scheme: dark)" src="logo/logoLight.gif#gh-light-mode-only" />
 </p>
 
 # Prisma: MultiSchema [![NPM](https://badgen.net/npm/types/prisma-multischema)](https://www.npmjs.com/package/prisma-multischema)
