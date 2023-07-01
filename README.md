@@ -20,7 +20,7 @@ to Unify Multiple Structured Schemas of [Prisma-ORM](https://www.prisma.io/)
 <details open >
 <summary > 
     
-# Installation
+### Installation
 </summary>
 <p align="center">
     
@@ -30,16 +30,18 @@ npm i prisma-multischema
 ```
 yarn add prisma-multischema
 ```
+ > **Note** Using **VS Code** ? Install Recommended VsCode Extensions from [Dependencies (optional)](https://github.com/joydip007x/Prisma-MultiSchema#dependencies-optional)
 </p>
 </details>
 
 <details close >
 <summary > 
     
-# Usage
+### Usage
 </summary>
 <p align="center">
-
+    
+- #### How to Use Tutorial : ✨[YT Link](https://youtu.be/4GOuJLvGVko)
 -  Place all your schemas in  `ProjectRoot/prisma/subschemas` Folder.<br>
 Like this :  
     ```st
@@ -53,6 +55,7 @@ Like this :
         │   │   └───user
         │   │   │    └───userData.prisma
         │   │   │    └───validity.prisma
+        │   │   ├───anything-you-want.prisma
         │   │   ├───base.prisma  
         |   |   └───...  
         │   └───schema.prisma   <-- will be Auto-Generated
@@ -69,13 +72,14 @@ Like this :
     ```bash
     npx prisma-multischema
     ```
+        
 </p>
 </details>
 
 <details close >
 <summary > 
     
-# Project Demonstration
+### Project Demonstration
 </summary>
 <p align="center">
 
@@ -87,7 +91,7 @@ working example is available below -
 <details close >
 <summary > 
     
-# Example
+### Example
 </summary>
 <p align="center">
 
@@ -160,10 +164,10 @@ model Bookmark {
 </p>
 </details>
 
-<details close >
+<details  >
 <summary > 
     
-# Additional
+### Additional
 </summary>
 <p align="center">
 
@@ -192,7 +196,7 @@ model Bookmark {
 <details close >
 <summary > 
  
-# Dependencies (optional)
+### Dependencies (optional)
 </summary>
 <p align="center">
 
@@ -208,7 +212,7 @@ To use <b>prisma import</b> feature : (<i>if you are using VS code, its better t
 <details close >
 <summary > 
   
-# To-do's
+### To-do's
 </summary>
 <p align="center">
 
@@ -220,4 +224,4 @@ To use <b>prisma import</b> feature : (<i>if you are using VS code, its better t
 </p>
 </details>
 
-## Authors - [@joydip007x](https://www.github.com/joydip007x)
+#### Authors - [@joydip007x](https://www.github.com/joydip007x)
