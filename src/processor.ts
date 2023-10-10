@@ -19,7 +19,7 @@ const regExp=new RegExp(matchString);
  *  prisma accepts schema.prisma from 'src/prisma/schema.prisma' file.
  *  @Change if you know to handle 
 */
-export const getAllFiles = function(dirPath: fs.PathLike, arrayOfFiles: string[] ) {
+export const getAllFiles = function(dirPath: fs.PathLike, arrayOfFiles: any ) {
 
     try {
       const files = fs.readdirSync(dirPath)    
@@ -85,7 +85,9 @@ export const getAllFiles = function(dirPath: fs.PathLike, arrayOfFiles: string[]
                  }
                  break;
          case 1: 
-                 if( line!='\n' && line!="" && generatedComment.search(line)!=-1 ){ }
+                 if( line.search('binaryTargets')==-1 && line!='\n' && line!="" && generatedComment.search(line)!=-1 ){ 
+                    /// When find Generated Comment from Base.prisma ignore line processing
+                 }
                  else if( regExp.test(line) ){
                   
                      let startInd=0;

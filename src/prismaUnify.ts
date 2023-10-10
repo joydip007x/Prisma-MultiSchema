@@ -5,6 +5,7 @@ import { colorLogs } from './utility/colorLogs';
 import { errorLogs } from './logger';
 import { exit } from 'node:process';
 import { getAllFiles, processSubschemas } from './processor';
+import { checkJSON } from './utility/JSON';
 
 function getAppRootDir () { return process.cwd(); }
 
@@ -12,6 +13,10 @@ export var appRoot=getAppRootDir();
 export var allSchemaFolder='/prisma/subschemas';
 export var subschemasPath=path.join(appRoot,allSchemaFolder);
 
+
+function genSubschemasPath(){
+
+}
 /**
    * @author | joydip007x
    * @desc This is an Utility script that will generate  schema.prisma in '/prisma '
@@ -21,7 +26,10 @@ export var subschemasPath=path.join(appRoot,allSchemaFolder);
     There should not be any '*.prisma' files in '/prisma/' folder except 'schema.prisma'
 */
 export async function prismaUnifier( test_mocha : number =0 ){
-  
+    
+    //checkJSON();
+    //genSubschemasPath();
+
     
     const mainSchemaPrismaPath=path.join( appRoot + '/prisma/schema.prisma');
 

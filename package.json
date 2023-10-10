@@ -1,6 +1,6 @@
 {
   "name": "prisma-multischema",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "Prisma Multiple Schema Support with Structure & Add imports to your Prisma schemas",
   "exports": {
     ".": {
@@ -28,11 +28,9 @@
     "clean": "npm run clean:win || npm run clean:lin",
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || if exist lib rmdir /s /q \"lib\" ",
     "clean:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || rm -rf ./lib",
-
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && npm run mv:win && npm run mv:lin ",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
-    
     "mv:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || move  \"lib\\esm\\index.js\" \"lib\\esm\\index.mjs\" ",
     "mv:lin": "node -e \"if (process.platform !== 'win32') process.exit(1)\" || mv lib/esm/index.js lib/esm/index.mjs",
     "test": "mocha",
@@ -51,9 +49,16 @@
     "url": "https://github.com/joydip007x/Prisma-MultiSchema.git"
   },
   "keywords": [
-    "Prisma Schema Multiple","Prisma Schema Aggregator","Multi-schema support",
-    "prisma","prisma-import","prisma-multischema","prisma Multischema",
-    "prisma-subschema","prisma","Prisma Multiple Schema"
+    "Prisma Schema Multiple",
+    "Prisma Schema Aggregator",
+    "Multi-schema support",
+    "prisma",
+    "prisma-import",
+    "prisma-multischema",
+    "prisma Multischema",
+    "prisma-subschema",
+    "prisma",
+    "Prisma Multiple Schema"
   ],
   "author": "Joydip007x",
   "license": "MIT",
@@ -64,7 +69,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.5",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^20.2.1",
+    "@types/node": "^20.8.4",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "ts-node": "^10.9.1",

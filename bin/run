@@ -9,17 +9,14 @@ function sleep(ms){
 async function commands(){
 
     await prismaUnifier();
-    await sleep(300);
-    console.log("⏲","\x1b[33m","Wait ! Running: ","\x1b[1m","npx prisma generate","\x1b[0m");
-    const gen= exec('npx prisma generate')
-    const p=setTimeout(()=>{
-        exec('npx prisma format')
-        console.log(' Run:',"\x1b[1m","\x1b[34m","npx prisma studio","\x1b[0m","to inspect your database");
-        console.log(" ✅ Generated","\x1b[32m","Prisma Client ","\x1b[0m","Reference: https://pris.ly/d/client ");
-        console.log(" Start Using :"," import { PrismaClient } from '@prisma/client'\n",
-        "               const prisma = new PrismaClient()");
+    console.log("⏲","\x1b[33m","Wait ! Running: ","\x1b[1m","npx prisma generate & npx prisma format","\x1b[0m");
+    exec('npx prisma generate')
+    exec('npx prisma format')
+    console.log(' Run:',"\x1b[1m","\x1b[34m","npx prisma studio","\x1b[0m","to inspect your database");
+    console.log(" ✅ Generated","\x1b[32m","Prisma Client ","\x1b[0m","Reference: https://pris.ly/d/client ");
+    console.log("\x1b[32m","Leave a star⭐:","\x1b[0m","https://github.com/joydip007x/Prisma-MultiSchema",". It helps a lot. ",);
 
-    },700);
+ 
 }
 commands();
 
