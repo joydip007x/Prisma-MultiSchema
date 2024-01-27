@@ -35,6 +35,7 @@ yarn add prisma-multischema
 𝙻𝚎𝚊𝚟𝚎 𝚊 𝚂𝚝𝚊𝚛⭐ 𝚘𝚗 𝚝𝚑𝚎 𝚁𝚎𝚙𝚘 ,𝚒𝚏 𝚢𝚘𝚞 𝚏𝚘𝚞𝚗𝚍 𝚒𝚝 𝚑𝚎𝚕𝚙𝚏𝚞𝚕.
 𝚂𝚞𝚙𝚙𝚘𝚛𝚝𝚜 𝚊𝚗𝚍 𝚏𝚎𝚎𝚍𝚋𝚊𝚌𝚔 𝚖𝚎𝚊𝚗𝚜 𝚊 𝚕𝚘𝚝 𝚊𝚗𝚍 𝚎𝚗𝚌𝚘𝚞𝚛𝚊𝚐𝚎𝚜 𝚖𝚎❤️.
 ~~~
+<a href="https://www.buymeacoffee.com/joydip007x" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" style="border-radius:50px"></a>
 </p>
 </details>
 
